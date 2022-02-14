@@ -17,7 +17,8 @@ import * as css from './RootRoute.module.pcss';
 
 export const RootRoute: FC = () => {
     // If you're testing without a phone, set this to true to allow a browser-based wallet connection to be used
-    const connectWallet = false;
+    // Updated 2/14/22
+    const connectWallet = true;
     const wallets = useMemo(
         () => (connectWallet ? [new PhantomWalletAdapter(), new TorusWalletAdapter()] : []),
         [connectWallet]
