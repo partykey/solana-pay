@@ -14,6 +14,9 @@ import { TransactionsProvider } from '../contexts/TransactionsProvider';
 import { SolanaPayLogo } from '../images/SolanaPayLogo';
 import { SOLIcon } from '../images/SOLIcon';
 import * as css from './RootRoute.module.pcss';
+//updated 2/14/22
+import { MAINNET_ENDPOINT, MAINNET_USDC_MINT } from '../../utils/constants';
+import { USDCIcon } from '../images/USDCIcon';
 
 export const RootRoute: FC = () => {
     // If you're testing without a phone, set this to true to allow a browser-based wallet connection to be used
@@ -42,20 +45,28 @@ export const RootRoute: FC = () => {
         return { recipient, label };
     }, [params]);
 
+    //original values below
+    //<ConnectionProvider endpoint={DEVNET_ENDPOINT}>
+    //symbol="SOL"
+    //icon={<SOLIcon />}
+    //decimals={9}
+    //minDecimals={1}
+
     return (
         <ThemeProvider>
             <FullscreenProvider>
                 {recipient && label ? (
-                    <ConnectionProvider endpoint={DEVNET_ENDPOINT}>
+                    <ConnectionProvider endpoint={MAINNET_ENDPOINT}>
                         <WalletProvider wallets={wallets} autoConnect={connectWallet}>
                             <WalletModalProvider>
                                 <ConfigProvider
                                     recipient={recipient}
                                     label={label}
-                                    symbol="SOL"
-                                    icon={<SOLIcon />}
-                                    decimals={9}
-                                    minDecimals={1}
+                                    splToken={MAINNET_USDC_MINT}
+                                    symbol="USDC"
+                                    icon={<USDCIcon />}
+                                    decimals={6}
+                                    minDecimals={2}
                                     requiredConfirmations={9}
                                     connectWallet={connectWallet}
                                 >
