@@ -73,7 +73,7 @@ export const RootRoute: FC = () => {
                                     label={label}
                                     symbol="SOL"
                                     icon={<SOLIcon />}
-                                    decimals={9}
+                                    decimals={9} 
                                     minDecimals={1}
                                     requiredConfirmations={9}
                                     connectWallet={connectWallet}
