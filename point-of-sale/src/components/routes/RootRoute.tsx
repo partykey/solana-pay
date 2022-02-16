@@ -15,6 +15,7 @@ import { SolanaPayLogo } from '../images/SolanaPayLogo';
 import { SOLIcon } from '../images/SOLIcon';
 import * as css from './RootRoute.module.pcss';
 //updated 2/14/22
+//import the following 2 lines to accept USDC on Mainnet
 //import { MAINNET_ENDPOINT, MAINNET_USDC_MINT } from '../../utils/constants';
 //import { USDCIcon } from '../images/USDCIcon';
 
@@ -45,24 +46,31 @@ export const RootRoute: FC = () => {
         return { recipient, label };
     }, [params]);
 
-    //original values below
+    //devnet original values below
     //<ConnectionProvider endpoint={DEVNET_ENDPOINT}>
     //symbol="SOL"
     //icon={<SOLIcon />}
     //decimals={9}
     //minDecimals={1}
 
+    //mainnet values
+    //<ConnectionProvider endpoint={MAINNET_ENDPOINT}>
+    //splToken={MAINNET_USDC_MINT}
+    //symbol="USDC"
+    //icon={<USDCIcon />}
+    //decimals={6}
+    //minDecimals={2}
+    
     return (
         <ThemeProvider>
             <FullscreenProvider>
                 {recipient && label ? (
-                    <ConnectionProvider endpoint={MAINNET_ENDPOINT}>
+                    <ConnectionProvider endpoint={DEVNET_ENDPOINT}>
                         <WalletProvider wallets={wallets} autoConnect={connectWallet}>
                             <WalletModalProvider>
-                                <ConfigProvider
+                                <ConfigProvider                                   
                                     recipient={recipient}
                                     label={label}
-                                    splToken={MAINNET_USDC_MINT}
                                     symbol="SOL"
                                     icon={<SOLIcon />}
                                     decimals={9}
