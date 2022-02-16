@@ -15,7 +15,7 @@ import { SolanaPayLogo } from '../images/SolanaPayLogo';
 import { SOLIcon } from '../images/SOLIcon';
 import * as css from './RootRoute.module.pcss';
 //updated 2/14/22
-import { MAINNET_ENDPOINT, MAINNET_USDC_MINT } from '../../utils/constants';
+//import { MAINNET_ENDPOINT, MAINNET_USDC_MINT } from '../../utils/constants';
 //import { USDCIcon } from '../images/USDCIcon';
 
 export const RootRoute: FC = () => {
