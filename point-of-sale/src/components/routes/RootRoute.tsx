@@ -65,13 +65,12 @@ export const RootRoute: FC = () => {
         <ThemeProvider>
             <FullscreenProvider>
                 {recipient && label ? (
-                    <ConnectionProvider endpoint={MAINNET_ENDPOINT}>
+                    <ConnectionProvider endpoint={DEVNET_ENDPOINT}>
                         <WalletProvider wallets={wallets} autoConnect={connectWallet}>
                             <WalletModalProvider>
                                 <ConfigProvider                                   
                                     recipient={recipient}
                                     label={label}
-                                    splToken={MAINNET_USDC_MINT}
                                     symbol="SOL"
                                     icon={<SOLIcon />}
                                     decimals={9}
